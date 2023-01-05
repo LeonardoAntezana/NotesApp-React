@@ -15,7 +15,7 @@ function ContextNotesProvider({children}) {
       let localS = JSON.parse(localStorage.getItem('notes'))
       localS && setNotes([...localS])
       let idNote = JSON.parse(localStorage.getItem('noteId'))
-      localS.length === 0 ? setIdNote(1) : setIdNote(idNote)
+      localS && localS.length === 0 ? setIdNote(1) : setIdNote(idNote)
     }, [])
 
     useEffect(() => {
