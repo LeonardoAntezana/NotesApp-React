@@ -1,0 +1,38 @@
+.note{
+    height: fit-content;
+    background-color: white;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .info{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1.5rem;
+        .title{
+            background-color: rgb(61, 27, 61);
+            color: #fff;
+            width: fit-content;
+            padding: 4px 1rem;
+            border-radius: 20px;
+        }
+    }
+    .container__buttons{
+        display: flex;
+        justify-content: center;
+        button{
+            width: 100%;
+            padding: 0.5rem 0px;
+            color: #fff;
+        }
+        .btn__mod{
+            background-color: rgb(31, 129, 31);
+            border-bottom-left-radius: 0.5rem;
+        }
+        .btn__delete{
+            background-color: rgb(202, 36, 36);
+            border-end-end-radius: 0.5rem;
+        }
+    }
+}

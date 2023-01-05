@@ -1,6 +1,7 @@
 import { useNotesContext } from '../../context/ContextNotesProvider/ContextNotesProvider'
 import { AiFillDelete } from 'react-icons/ai'
 import { MdModeEdit } from 'react-icons/md'
+import styles from './Note.module.scss'
 
 function Note({note, modalOn}) {
     const {deleteNote, modNote} = useNotesContext()
@@ -10,14 +11,14 @@ function Note({note, modalOn}) {
         modalOn()
     }
     return (
-    <div className='note'>
-        <div className='note__info'>
-            <h3 className='note__title'>{title}</h3>
-            <p className='note__content'>{content}</p>
+    <div className={styles.note}>
+        <div className={styles.info}>
+            <h3 className={styles.title}>{title}</h3>
+            <p>{content}</p>
         </div>
-        <div className='note__container__buttons'>
-            <button onClick={() => modify(id)} className='button__note btn__mod'><MdModeEdit/></button>
-            <button onClick={() => deleteNote(id)} className='button__note btn__delete'><AiFillDelete/></button>
+        <div className={styles.container__buttons}>
+            <button onClick={() => modify(id)} className={styles.btn__mod}><MdModeEdit/></button>
+            <button onClick={() => deleteNote(id)} className={styles.btn__delete}><AiFillDelete/></button>
         </div>
     </div>
   )

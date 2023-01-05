@@ -1,5 +1,6 @@
 import { useNotesContext } from "../../context/ContextNotesProvider/ContextNotesProvider"
 import Note from "../Note/Note"
+import styles from './ListNotes.module.scss'
 
 function ListNotes({modalOn}) {
     const {notes} = useNotesContext()
@@ -10,8 +11,10 @@ function ListNotes({modalOn}) {
     )
   }
   return (
-    <div>
-       {notes.map((note, index) => <Note key={index} note={note} modalOn={modalOn}/>)}
+    <div className={styles.container__notes}>
+        <div className={styles.grid__notes}>
+          {notes.map((note, index) => <Note key={index} note={note} modalOn={modalOn}/>)}
+        </div>
     </div>
   )
 }

@@ -1,0 +1,14 @@
+.container__notes{
+    width: 90%;
+    max-width: 1140px;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: rgb(255, 255, 255, 0.2);
+    box-shadow: -2px 0px 14px 5px rgba(255, 255, 255, 0.4);
+    .grid__notes{
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+    }    
+}
+

@@ -1,0 +1,12 @@
+.btn__addNote{
+    height: 80px;
+    cursor: pointer;
+    opacity: 0.5;
+    filter: invert(0.4) sepia(1) hue-rotate(360deg) saturate(1000%);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn__addNote:hover{
+    opacity: 1;
+    transform: scale(1.2);
+}
