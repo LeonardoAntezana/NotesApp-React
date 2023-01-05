@@ -1,4 +1,4 @@
-import { React, createContext, useState, useContext } from 'react'
+import { React, createContext, useState, useEffect, useContext } from 'react'
 
 const NotesContext = createContext()
 
@@ -9,6 +9,18 @@ function ContextNotesProvider({children}) {
     const [notes, setNotes] = useState([])
     const [notePrev, setNotePrev] = useState(null)
     const [idNote, setIdNote] = useState(1)
+
+    useEffect(() => {
+      localStorage.setItem('notes', JSON.stringify(notes))
+      localStorage.setItem('noteId', JSON.stringify(idNote))
+    },[notes, idNote])
+
+    useEffect(()=> {
+      let localS = JSON.parse(localStorage.getItem('notes'))
+      localS && setNotes(localS)
+      let idNote = JSON.parse(localStorage.getItem('noteId'))
+      localS.length === 0 ? setIdNote(1) : setIdNote(idNote)
+    }, [])
 
     const clear = () => setNote({title: '', content: ''})
 
