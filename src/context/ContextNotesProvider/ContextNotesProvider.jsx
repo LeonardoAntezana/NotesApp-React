@@ -1,4 +1,5 @@
 import { React, createContext, useState, useEffect, useContext } from 'react'
+import { validarDatos , messaje} from '../../utilities/utilities'
 
 const NotesContext = createContext()
 
@@ -10,38 +11,47 @@ function ContextNotesProvider({children}) {
     const [notePrev, setNotePrev] = useState(null)
     const [idNote, setIdNote] = useState(1)
 
+    useEffect(()=> {
+      let localS = JSON.parse(localStorage.getItem('notes'))
+      localS && setNotes([...localS])
+      let idNote = JSON.parse(localStorage.getItem('noteId'))
+      localS.length === 0 ? setIdNote(1) : setIdNote(idNote)
+    }, [])
+
     useEffect(() => {
       localStorage.setItem('notes', JSON.stringify(notes))
       localStorage.setItem('noteId', JSON.stringify(idNote))
     },[notes, idNote])
 
-    useEffect(()=> {
-      let localS = JSON.parse(localStorage.getItem('notes'))
-      localS && setNotes(localS)
-      let idNote = JSON.parse(localStorage.getItem('noteId'))
-      localS.length === 0 ? setIdNote(1) : setIdNote(idNote)
-    }, [])
-
     const clear = () => setNote({title: '', content: ''})
 
     const addNote = (title, text) => {
-      if(notePrev !== null){
-        console.log(notePrev)
-        let noteSearch = notes.find(note => note.id === notePrev.id)
-        noteSearch.title = title
-        noteSearch.content = text
-        setNotes([...notes])
-        setNotePrev(null)  
+      if(validarDatos(title, text)){
+        if(notePrev !== null){
+          console.log(notePrev)
+          let noteSearch = notes.find(note => note.id === notePrev.id)
+          noteSearch.title = title
+          noteSearch.content = text
+          setNotes([...notes])
+          setNotePrev(null)  
+        }
+        else{
+          setNotes([...notes, {id: idNote, title: title, content: text}])
+          messaje('Nota agregada')
+        }
+        clear()
+        setIdNote( idNote + 1)
       }
       else{
-        setNotes([...notes, {id: idNote, title: title, content: text}])
+        messaje('Nada que guardar!')
       }
-      clear()
-      setIdNote( idNote + 1)
     }
     
-    const deleteNote = id => setNotes(notes.filter(note => note.id !== id))
-    
+    const deleteNote = id => {
+      setNotes(notes.filter(note => note.id !== id))
+      messaje('Nota eliminada!')
+    }
+
     const modNote = id => {
       let noteSearch = notes.find(note => note.id === id)
       setNote(state => ({title: noteSearch.title, content: noteSearch.content}))
