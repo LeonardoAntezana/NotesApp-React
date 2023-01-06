@@ -14,8 +14,11 @@
             background-color: rgb(61, 27, 61);
             color: #fff;
             width: fit-content;
-            padding: 4px 1rem;
+            padding: 0.5rem 1rem;
             border-radius: 20px;
+        }
+        p{
+            line-height: 23px;
         }
     }
     .container__buttons{
@@ -27,12 +30,14 @@
             color: #fff;
         }
         .btn__mod{
-            background-color: rgb(31, 129, 31);
+            background-color: rgb(61, 27, 61);
             border-bottom-left-radius: 0.5rem;
+            &:hover{background-color: rgb(61, 27, 61, 0.7);}
         }
         .btn__delete{
-            background-color: rgb(202, 36, 36);
+            background-color: rgb(213,95, 28);
             border-end-end-radius: 0.5rem;
+            &:hover{background-color: rgb(213,95, 28, 0.7);}
         }
     }
 }

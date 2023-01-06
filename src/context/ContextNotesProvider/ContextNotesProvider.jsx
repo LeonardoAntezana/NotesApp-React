@@ -28,12 +28,12 @@ function ContextNotesProvider({children}) {
     const addNote = (title, text) => {
       if(validarDatos(title, text)){
         if(notePrev !== null){
-          console.log(notePrev)
           let noteSearch = notes.find(note => note.id === notePrev.id)
           noteSearch.title = title
           noteSearch.content = text
           setNotes([...notes])
-          setNotePrev(null)  
+          setNotePrev(null)
+          messaje('Nota modificada!')  
         }
         else{
           setNotes([...notes, {id: idNote, title: title, content: text}])

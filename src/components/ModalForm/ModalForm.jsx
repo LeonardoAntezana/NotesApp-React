@@ -17,8 +17,8 @@ function ModalForm({fnCancel}) {
   return (
     <div className={styles.container__modal}>
             <div className={styles.modal}>
-                <input type="text" value={note.title} onChange={(e) => setNote(state => ({...state, title: e.target.value}))}/>
-                <textarea value={note.content} onChange={(e) => setNote(state => ({...state, content: e.target.value}))} cols="30" rows="10"></textarea>
+                <input type="text" value={note.title} onChange={(e) => setNote(state => ({...state, title: e.target.value}))} maxLength={20}/>
+                <textarea value={note.content} onChange={(e) => setNote(state => ({...state, content: e.target.value}))}></textarea>
                 <div className={styles.buttons__modal}>
                     <button className={styles.btn__cancel__modal} onClick={handleclickCancel}>Cancelar</button>
                     <button className={styles.btn__confirm__modal} onClick={handleClickConfirm}>Confirmar</button>

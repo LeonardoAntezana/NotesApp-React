@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anybody&family=Rubik&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -10,6 +12,7 @@ button{
 }
 
 .App{
+    font-family: 'Rubik', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
