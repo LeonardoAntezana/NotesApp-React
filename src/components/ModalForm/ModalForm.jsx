@@ -2,11 +2,13 @@ import { useNotesContext } from "../../context/ContextNotesProvider/ContextNotes
 import styles from './ModalForm.module.scss'
 
 function ModalForm({fnCancel}) {
-  const {note, setNote, addNote, clear} = useNotesContext()
+  const {note, setNote, addNote, clear, setNotePrev} = useNotesContext()
 
   const handleclickCancel = () => {
+    setNotePrev(null)
     fnCancel()
     clear()
+    
   }
 
   const handleClickConfirm = () => {

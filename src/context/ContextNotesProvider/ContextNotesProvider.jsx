@@ -21,6 +21,7 @@ function ContextNotesProvider({children}) {
     useEffect(() => {
       localStorage.setItem('notes', JSON.stringify(notes))
       localStorage.setItem('noteId', JSON.stringify(idNote))
+      console.log(notePrev)
     },[notes, idNote])
 
     const clear = () => setNote({title: '', content: ''})
@@ -58,7 +59,7 @@ function ContextNotesProvider({children}) {
       setNotePrev({...noteSearch})
     }
   return (
-    <NotesContext.Provider value={{note, setNote, notes, addNote, clear, deleteNote, modNote}}>
+    <NotesContext.Provider value={{note, setNote, notes, addNote, clear, deleteNote, modNote, setNotePrev}}>
         {children}
     </NotesContext.Provider>
   )

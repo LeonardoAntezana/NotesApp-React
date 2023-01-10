@@ -7,7 +7,7 @@ function ListNotes({modalOn}) {
     
   if(notes.length === 0){
     return(
-        <p>No se encuentran notas!</p>
+        <p className={styles.cero__notes}>No se encuentran notas!</p>
     )
   }
   return (
